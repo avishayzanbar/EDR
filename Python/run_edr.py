@@ -1,8 +1,8 @@
-import os
-import time
+import numpy as np
+import cv2
+import os, time
 
 from create_images_set import create_images_set
-from rgb2ycrcb import *
 from edr import edr
 from first_stage_improve import first_stage_improve
 from second_stage_improve import second_stage_improve
@@ -30,8 +30,8 @@ def load_input_img(name):
 
 print('Starting EDR...')
 save_output = True
-file_path = "images/UNADJUSTEDNONRAW_thumb_8470.jpg"
-# file_path = "/Users/avishayzanbar/Dropbox/EDR/MatlUNADJUSTEDNONRAW_thumb_9092ab/code/images/set1/PA032747.JPG"
+file_path = "images/UNADJUSTEDNONRAW_thumb_6afa.jpg"
+# file_path = "/Users/avishayzanbar/Dropbox/EDR/Matlab/code/images/set1/PA032747.JPG"
 input_img = load_input_img(file_path)
 
 ts = time.time()
@@ -61,7 +61,7 @@ if save_output:
     save_img = edr_image
     save_img[save_img < 0.] = 0.
     save_img[save_img > 1.] = 1.
-    cv2.imwrite(file_path.strip(".JPG") + "_EDR_py.jpg", (255 * edr_image).astype(np.uint8))
+    cv2.imwrite(file_path.strip(".JPG") + "_EDR_py_2.jpg", (255 * edr_image).astype(np.uint8))
     print('EDR Image saved')
 
 print('Done.')
