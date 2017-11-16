@@ -10,11 +10,11 @@ def brighten_img(image, factor):
     else:
         bright_img = np.power(np.tanh(factor * image), 1.1)
 
-    if factor > 7:
-        ycbcr = rgb2ycrcb(bright_img)
-        ycbcr[1, :, :] = medfilt2d(ycbcr[1, :, :], 5)
-        ycbcr[2, :, :] = medfilt2d(ycbcr[2, :, :], 5)
-        bright_img = ycrcb2rgb(ycbcr)
+    # if factor > 7:
+    #     ycbcr = rgb2ycrcb(bright_img)
+    #     ycbcr[1, :, :] = medfilt2d(ycbcr[1, :, :], 5)
+    #     ycbcr[2, :, :] = medfilt2d(ycbcr[2, :, :], 5)
+    #     bright_img = ycrcb2rgb(ycbcr)
     return bright_img
 
 
