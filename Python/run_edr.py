@@ -31,7 +31,6 @@ def load_input_img(name):
 print('Starting EDR...')
 save_output = True
 file_path = "images/UNADJUSTEDNONRAW_thumb_6afa.jpg"
-# file_path = "/Users/avishayzanbar/Dropbox/EDR/Matlab/code/images/set1/PA032747.JPG"
 input_img = load_input_img(file_path)
 
 ts = time.time()
@@ -61,7 +60,7 @@ if save_output:
     save_img = edr_image
     save_img[save_img < 0.] = 0.
     save_img[save_img > 1.] = 1.
-    cv2.imwrite(file_path.strip(".JPG") + "_EDR_py_2.jpg", (255 * edr_image).astype(np.uint8))
+    cv2.imwrite(file_path.strip(".JPG") + "_EDR_py.jpg", (255 * edr_image).astype(np.uint8))
     print('EDR Image saved')
 
 print('Done.')
